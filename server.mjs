@@ -25,6 +25,8 @@ connectDB();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json({extended: true}));
 
+app.use(express.json());
+
 // Routes
 app.use('/questions', questionsRoutes);
 app.use('/users', usersRoutes);

@@ -1,9 +1,7 @@
 import express from 'express';
 import User from '../models/usersSchema.mjs';
 
-
 const router = express.Router();
-
 
 // Create Users
 router.post('/', async (req, res) => {

@@ -1,9 +1,7 @@
 import express from 'express';
 import Question from '../models/questionsSchema.mjs';
 
-
 const router = express.Router();
-
 
 // Create Trivia Questions
 router.post('/', async (req, res) => {
