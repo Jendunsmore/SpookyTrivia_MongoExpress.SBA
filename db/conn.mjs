@@ -6,8 +6,6 @@ dotenv.config();
 // Create connection string
 const connectionString = process.env.mongoURI;
 
-const client = new MongoClient(connectionString);
-
 export default async function connectDB() {
     try {
         await mongoose.connect(connectionString);
