@@ -1,24 +1,19 @@
-import { MongoClient } from "mongodb";
+import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
 // Create connection string
-let connectionString = process.env.atlasURI || '';
+const connectionString = process.env.mongoURI;
 
 const client = new MongoClient(connectionString);
 
-// Variable to hold connection info
-let conn;
-
-try {
-    // Try to connect to client
-    conn = await client.connect();
-    console.log(`MongoDB connected`);
-} catch (err) {
-    console.error(err);
+export default async function connectDB() {
+    try {
+        await mongoose.connect(connectionString);
+        console.log(`MongoDB Connected...`);
+    } catch (err) {
+        console.error(err);
+        process.exit(1);
+    }
 }
-
-let db = conn.db('spookyTriviaGame');
-
-export default db;
